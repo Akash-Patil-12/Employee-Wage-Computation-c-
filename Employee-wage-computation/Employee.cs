@@ -7,26 +7,27 @@ namespace Employee_wage_computation
     class Employee
     {
         //variable
-        int totalWage;
+        int empCheck,totalWage;
         //constant
-        const int WAGE_PER_HOUR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0;
-
+        const int WAGE_PER_HOUR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;
        /// <summary>
-       /// Calculate employee part time and full time wage
+       /// Calculate employee part time and full time wage using switch case
        /// </summary>
         public void EmployeeWage()
         {
             Random random = new Random();
-            int empCheck = random.Next(0, 2);
-            if (empCheck == FULL_DAY)
+            empCheck = random.Next(0, 2);
+            switch (empCheck)
             {
-                totalWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+                case FULL_DAY:
+                    totalWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+                    break;
+                case HALF_DAY:
+                    totalWage = WAGE_PER_HOUR * HALF_DAY_HOUR;
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                totalWage = WAGE_PER_HOUR * HALF_DAY_HOUR;
-            }
-
             Console.WriteLine("Employee Wage is :" + totalWage);
         }
     }
