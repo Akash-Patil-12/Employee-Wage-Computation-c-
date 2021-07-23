@@ -6,7 +6,8 @@ namespace Employee_wage_computation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("welcome");
+            Employee employee = new Employee();
+            employee.checkEmployee();
         }
     }
 }
