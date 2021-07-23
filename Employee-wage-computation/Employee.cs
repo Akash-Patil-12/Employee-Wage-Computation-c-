@@ -7,7 +7,7 @@ namespace Employee_wage_computation
     class Employee
     {
         //variable
-        int empCheck,totalWage;
+        int empCheck, totalHours=0;
         //constant
         const int WAGE_PER_HOUR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;
        /// <summary>
@@ -22,16 +22,19 @@ namespace Employee_wage_computation
                 switch (empCheck)
                 {
                     case FULL_DAY:
-                        totalWage += WAGE_PER_HOUR * FULL_DAY_HOUR;
+                        totalHours += FULL_DAY_HOUR;
                         break;
                     case HALF_DAY:
-                        totalWage += WAGE_PER_HOUR * HALF_DAY_HOUR;
+                        totalHours += HALF_DAY_HOUR;
                         break;
                     default:
                         break;
                 }
+                if (totalHours >= 100)
+                    break;
             }
-            Console.WriteLine("Employee Wage of month is :" + totalWage);
+            Console.WriteLine("Total Hours is :" + totalHours);
+            Console.WriteLine("Employee Wage is :" + (totalHours * WAGE_PER_HOUR));
         }
     }
 }
