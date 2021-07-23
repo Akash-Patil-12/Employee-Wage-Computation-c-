@@ -16,19 +16,22 @@ namespace Employee_wage_computation
         public void EmployeeWage()
         {
             Random random = new Random();
-            empCheck = random.Next(0, 2);
-            switch (empCheck)
+            for (int day = 1; day <= 20; day++)
             {
-                case FULL_DAY:
-                    totalWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-                    break;
-                case HALF_DAY:
-                    totalWage = WAGE_PER_HOUR * HALF_DAY_HOUR;
-                    break;
-                default:
-                    break;
+                empCheck = random.Next(0, 2);
+                switch (empCheck)
+                {
+                    case FULL_DAY:
+                        totalWage += WAGE_PER_HOUR * FULL_DAY_HOUR;
+                        break;
+                    case HALF_DAY:
+                        totalWage += WAGE_PER_HOUR * HALF_DAY_HOUR;
+                        break;
+                    default:
+                        break;
+                }
             }
-            Console.WriteLine("Employee Wage is :" + totalWage);
+            Console.WriteLine("Employee Wage of month is :" + totalWage);
         }
     }
 }
