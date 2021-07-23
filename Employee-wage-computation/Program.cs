@@ -7,7 +7,7 @@ namespace Employee_wage_computation
         static void Main(string[] args)
         {
             Employee employee = new Employee();
-            employee.checkEmployee();
+            employee.EmployeeWage();
         }
     }
 }

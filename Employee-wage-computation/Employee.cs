@@ -7,18 +7,17 @@ namespace Employee_wage_computation
     class Employee
     {
         //variable
-        int check;
+        int totalWage;
+        //constant
+        const int WAGE_PER_HOUR = 20;
+        const int FULL_DAY_HOUR = 8;
         /// <summary>
-        /// check employee present or absent
+        /// calculate employee daily wage
         /// </summary>
-        public void checkEmployee()
+        public void EmployeeWage()
         {
-            Random random = new Random();
-            check = random.Next(0, 2);
-            if (check == 0)
-                Console.WriteLine("Employee is present");
-            else
-                Console.WriteLine("Employee is Absent");
+            totalWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+            Console.WriteLine("Employee Daily Wage is :" + totalWage);
         }
     }
 }
