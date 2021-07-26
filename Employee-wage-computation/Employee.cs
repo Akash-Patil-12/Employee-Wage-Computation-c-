@@ -7,16 +7,16 @@ namespace Employee_wage_computation
     class Employee
     {
         //variable
-        int empCheck, totalHours=0;
+        int empCheck=0, totalHours=0;
         //constant
-        const int WAGE_PER_HOUR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;
+        const int WAGE_PER_HOUR = 20,FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1,MONTH=20;
        /// <summary>
        /// Calculate employee part time and full time wage using switch case
        /// </summary>
         public void EmployeeWage()
         {
             Random random = new Random();
-            for (int day = 1; day <= 20; day++)
+            for (int day = 1; day <=MONTH; day++)
             {
                 empCheck = random.Next(0, 2);
                 switch (empCheck)
