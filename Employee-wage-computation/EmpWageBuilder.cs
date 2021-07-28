@@ -9,7 +9,7 @@ namespace Employee_wage_computation
         Dictionary<string, int> companyToEmpWageMap = new Dictionary<string, int>();
         List<CompanyEmpWage> companyEmpWageList = new List<CompanyEmpWage>();
         /// <summary>
-        /// Create object of CompanyEmpWage and save it in companyEmpWageList
+        /// Create object of CompanyEmpWage and save it in CompanyEmpWageList
         /// </summary>
         /// <param name="companyName"></param>
         /// <param name="empRatePerHour"></param>
@@ -31,7 +31,7 @@ namespace Employee_wage_computation
             }
         }
         /// <summary>
-        /// Display the total Employee wage according to specific company
+        /// Display the total Employee wage according to specific company name
         /// </summary>
         /// <param name="company"></param>
         /// <returns></returns>
