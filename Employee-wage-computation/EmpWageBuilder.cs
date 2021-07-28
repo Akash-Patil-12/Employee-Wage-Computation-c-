@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Employee_wage_computation
 {
-    class EmpWageBuilder
+    class EmpWageBuilder:IEmpWage
     {
         Dictionary<string, int> companyToEmpWageMap = new Dictionary<string, int>();
         List<CompanyEmpWage> companyEmpWageList = new List<CompanyEmpWage>();
         /// <summary>
-        /// Calculate total employee wage and save it in dictionary
+        /// Create object of CompanyEmpWage and save it in companyEmpWageList
         /// </summary>
         /// <param name="companyName"></param>
         /// <param name="empRatePerHour"></param>
@@ -19,13 +19,15 @@ namespace Employee_wage_computation
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
             companyEmpWageList.Add(companyEmpWage);
-            //this.companyToEmpWageMap.Add(companyName, companyEmpWage.EmployeeWage());
         }
+        /// <summary>
+        /// Calculate total employee wage and save it in dictionary 
+        /// </summary>
         public void ComputeEmpWage()
         {
-            foreach(CompanyEmpWage companyEmpWage1 in companyEmpWageList)
+            foreach(CompanyEmpWage companyEmpWageVariable in companyEmpWageList)
             {
-                this.companyToEmpWageMap.Add(companyEmpWage1.companyName,companyEmpWage1.EmployeeWage());
+                this.companyToEmpWageMap.Add(companyEmpWageVariable.companyName,companyEmpWageVariable.EmployeeWage());
             }
         }
         /// <summary>
