@@ -1,14 +1,14 @@
 ﻿using System;
 namespace Employee_wage_computation
 {
-    class Employee
+    public class CompanyEmpWage
     {
         //variable
         int empCheck = 0, totalWorkingDays, totalEmpHours = 0, empHoursPerDay = 0, empRatePerHour, numOfWorkingDays, maxHoursPerMonth;
-        string companyName;
+      public  string companyName;
         //constant
         const int FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;  
-        public Employee(string companyName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        public CompanyEmpWage(string companyName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             this.companyName = companyName;
             this.empRatePerHour = empRatePerHour;
