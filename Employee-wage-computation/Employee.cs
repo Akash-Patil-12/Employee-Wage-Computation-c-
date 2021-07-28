@@ -1,40 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Employee_wage_computation
 {
     class Employee
     {
         //variable
-        int empCheck=0, totalHours=0;
+        int empCheck = 0, totalWorkingDays, totalEmpHours = 0, empHoursPerDay = 0;
         //constant
-        const int WAGE_PER_HOUR = 20,FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1,MONTH=20;
+        const int FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;       
        /// <summary>
-       /// Calculate employee part time and full time wage using switch case
+       /// Calculate employee part time and full time wage using switch case and display it with it's company name
        /// </summary>
-        public void EmployeeWage()
+        public void EmployeeWage(string companyName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             Random random = new Random();
-            for (int day = 1; day <=MONTH; day++)
+            totalWorkingDays = 0;
+            totalEmpHours = 0;
+            while(totalEmpHours<=maxHoursPerMonth && totalWorkingDays<=numOfWorkingDays)
             {
+                totalWorkingDays++;
                 empCheck = random.Next(0, 2);
                 switch (empCheck)
                 {
                     case FULL_DAY:
-                        totalHours += FULL_DAY_HOUR;
+                        empHoursPerDay= FULL_DAY_HOUR;
                         break;
                     case HALF_DAY:
-                        totalHours += HALF_DAY_HOUR;
+                        empHoursPerDay = HALF_DAY_HOUR;
                         break;
                     default:
                         break;
                 }
-                if (totalHours >= 100)
+                totalEmpHours += empHoursPerDay;
+                if (totalEmpHours >= maxHoursPerMonth)
                     break;
+                Console.WriteLine("Day :" + totalWorkingDays + " Employee Work Hours :" + empHoursPerDay);
             }
-            Console.WriteLine("Total Hours is :" + totalHours);
-            Console.WriteLine("Employee Wage is :" + (totalHours * WAGE_PER_HOUR));
+            Console.WriteLine("Total Employee wage for company :"+companyName+" is :"+(totalEmpHours * empRatePerHour));
         }
     }
 }
