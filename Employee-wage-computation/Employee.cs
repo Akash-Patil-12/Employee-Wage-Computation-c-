@@ -4,17 +4,26 @@ namespace Employee_wage_computation
     class Employee
     {
         //variable
-        int empCheck = 0, totalWorkingDays, totalEmpHours = 0, empHoursPerDay = 0;
+        int empCheck = 0, totalWorkingDays, totalEmpHours = 0, empHoursPerDay = 0, empRatePerHour, numOfWorkingDays, maxHoursPerMonth;
+        string companyName;
         //constant
-        const int FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;       
-       /// <summary>
-       /// Calculate employee part time and full time wage using switch case and display it with it's company name
-       /// </summary>
-        public void EmployeeWage(string companyName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        const int FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, FULL_DAY = 0, HALF_DAY = 1;  
+        public Employee(string companyName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        {
+            this.companyName = companyName;
+            this.empRatePerHour = empRatePerHour;
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+            this.totalEmpHours = 0;
+        }
+        /// <summary>
+        /// Calculate employee part time and full time wage using switch case and display it with it's company name also return totalWages
+        /// </summary>
+        public int EmployeeWage()
         {
             Random random = new Random();
             totalWorkingDays = 0;
-            totalEmpHours = 0;
+            //totalEmpHours = 0;
             while(totalEmpHours<=maxHoursPerMonth && totalWorkingDays<=numOfWorkingDays)
             {
                 totalWorkingDays++;
@@ -36,6 +45,7 @@ namespace Employee_wage_computation
                 Console.WriteLine("Day :" + totalWorkingDays + " Employee Work Hours :" + empHoursPerDay);
             }
             Console.WriteLine("Total Employee wage for company :"+companyName+" is :"+(totalEmpHours * empRatePerHour));
+            return (totalEmpHours * empRatePerHour);
         }
     }
 }

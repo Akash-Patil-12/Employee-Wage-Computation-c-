@@ -6,10 +6,11 @@ namespace Employee_wage_computation
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee();
-            employee.EmployeeWage("Jio",40,20,100);
-            employee.EmployeeWage("LG", 20, 25, 130);
-            employee.EmployeeWage("Google", 60, 15, 80);
+            EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+            empWageBuilder.AddCompanyEmpWage("Dell", 30, 25, 100);
+            empWageBuilder.AddCompanyEmpWage("Sony", 40, 20, 100);
+            Console.WriteLine("Total wages for Dell company is :" + empWageBuilder.GetTotalWage("Dell"));
+            Console.WriteLine("Total wages for Sony company is :" + empWageBuilder.GetTotalWage("Sony"));
         }
     }
 }
