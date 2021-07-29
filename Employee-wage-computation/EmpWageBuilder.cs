@@ -8,6 +8,7 @@ namespace Employee_wage_computation
     {
         Dictionary<string, int> companyToEmpWageMap = new Dictionary<string, int>();
         List<CompanyEmpWage> companyEmpWageList = new List<CompanyEmpWage>();
+        List<int> storeDailyWage = new List<int>();
         /// <summary>
         /// Create object of CompanyEmpWage and save it in CompanyEmpWageList
         /// </summary>
@@ -27,7 +28,7 @@ namespace Employee_wage_computation
         {
             foreach(CompanyEmpWage companyEmpWageVariable in companyEmpWageList)
             {
-                this.companyToEmpWageMap.Add(companyEmpWageVariable.companyName,companyEmpWageVariable.EmployeeWage());
+                this.companyToEmpWageMap.Add(companyEmpWageVariable.companyName,companyEmpWageVariable.EmployeeWage(storeDailyWage));
             }
         }
         /// <summary>

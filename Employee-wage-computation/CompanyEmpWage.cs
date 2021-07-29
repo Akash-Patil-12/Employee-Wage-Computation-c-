@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Employee_wage_computation
 {
     public class CompanyEmpWage
@@ -17,13 +19,12 @@ namespace Employee_wage_computation
             this.totalEmpHours = 0;
         }
         /// <summary>
-        /// Calculate employee part time and full time wage using switch case and display it with it's company name also return totalWages
+        /// Calculate employee part time and full time wage using switch case and display it with it's company name and save daily wage also return totalWages
         /// </summary>
-        public int EmployeeWage()
+        public int EmployeeWage(List<int> storeDailyWage)
         {
             Random random = new Random();
             totalWorkingDays = 0;
-            //totalEmpHours = 0;
             while(totalEmpHours<=maxHoursPerMonth && totalWorkingDays<=numOfWorkingDays)
             {
                 totalWorkingDays++;
@@ -39,9 +40,8 @@ namespace Employee_wage_computation
                     default:
                         break;
                 }
+                storeDailyWage.Add(empHoursPerDay * empRatePerHour);
                 totalEmpHours += empHoursPerDay;
-                if (totalEmpHours >= maxHoursPerMonth)
-                    break;
                 Console.WriteLine("Day :" + totalWorkingDays + " Employee Work Hours :" + empHoursPerDay);
             }
             Console.WriteLine("Total Employee wage for company :"+companyName+" is :"+(totalEmpHours * empRatePerHour));
