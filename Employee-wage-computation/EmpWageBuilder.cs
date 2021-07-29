@@ -32,7 +32,7 @@ namespace Employee_wage_computation
             }
         }
         /// <summary>
-        /// Display the total Employee wage according to specific company name
+        /// Display the total Employee wage according to specific company name what your pass as argument
         /// </summary>
         /// <param name="company"></param>
         /// <returns></returns>
